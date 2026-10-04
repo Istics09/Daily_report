@@ -154,7 +154,7 @@ with open(cache_file, "w", encoding="utf-8") as f:
     json.dump(geo_cache, f, indent=2, ensure_ascii=False)
 
 msg = EmailMessage()
-msg["Subject"] = f"{server_name} Daily report {today}"
+msg["Subject"] = f"{os.getenv('server_name')} Daily report {today}"
 msg["From"] = os.getenv("u_name")
 msg["To"] = os.getenv("email_to")
 msg.set_content("\n".join(report))
